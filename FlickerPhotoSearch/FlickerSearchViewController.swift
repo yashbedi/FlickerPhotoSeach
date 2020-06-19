@@ -73,7 +73,7 @@ extension FlickerSearchViewController : UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        return UICollectionViewCell()
     }
     
     

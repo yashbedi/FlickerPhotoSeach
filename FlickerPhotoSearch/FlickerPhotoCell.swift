@@ -9,5 +9,5 @@
 import UIKit
 
 final class FlickerPhotoCell: UICollectionViewCell {
-    s
+    
 }
