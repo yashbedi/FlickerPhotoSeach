@@ -14,6 +14,9 @@
 		31BDEA3C249D17930008BC73 /* FlickerPhotoSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDEA3B249D17930008BC73 /* FlickerPhotoSearchTests.swift */; };
 		31BDEA48249D2B140008BC73 /* FlickerPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */; };
 		31F4996F249DCFF5002D076A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31F4996E249DCFF5002D076A /* Main.storyboard */; };
+		31F49979249DF921002D076A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49978249DF921002D076A /* NetworkManager.swift */; };
+		31F4997B249E492C002D076A /* SearchApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4997A249E492C002D076A /* SearchApiResult.swift */; };
+		31F4997D249E6F75002D076A /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4997C249E6F75002D076A /* ImageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		31BDEA3D249D17930008BC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerPhotoCell.swift; sourceTree = "<group>"; };
 		31F4996E249DCFF5002D076A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		31F49978249DF921002D076A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		31F4997A249E492C002D076A /* SearchApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApiResult.swift; sourceTree = "<group>"; };
+		31F4997C249E6F75002D076A /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,14 +85,15 @@
 		31BDEA23249D17900008BC73 /* FlickerPhotoSearch */ = {
 			isa = PBXGroup;
 			children = (
+				31F49977249DF8E6002D076A /* plist */,
+				31F49976249DF8B4002D076A /* AppDelegate */,
+				31F49975249DF896002D076A /* NetworkManager */,
+				31F49974249DF873002D076A /* MVP */,
+				31F49973249DF865002D076A /* Service */,
 				31BDEA46249D1D6A0008BC73 /* BassClass */,
-				31BDEA24249D17900008BC73 /* AppDelegate.swift */,
 				31F4996E249DCFF5002D076A /* Main.storyboard */,
-				31BDEA28249D17900008BC73 /* FlickerSearchViewController.swift */,
-				31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */,
 				31BDEA2D249D17930008BC73 /* Assets.xcassets */,
 				31BDEA2F249D17930008BC73 /* LaunchScreen.storyboard */,
-				31BDEA32249D17930008BC73 /* Info.plist */,
 			);
 			path = FlickerPhotoSearch;
 			sourceTree = "<group>";
@@ -105,6 +112,72 @@
 			children = (
 			);
 			path = BassClass;
+			sourceTree = "<group>";
+		};
+		31F49970249DF79E002D076A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31F4997A249E492C002D076A /* SearchApiResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		31F49971249DF7A5002D076A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */,
+				31BDEA28249D17900008BC73 /* FlickerSearchViewController.swift */,
+				31F4997C249E6F75002D076A /* ImageDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31F49972249DF7AB002D076A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		31F49973249DF865002D076A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		31F49974249DF873002D076A /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				31F49972249DF7AB002D076A /* Presenter */,
+				31F49971249DF7A5002D076A /* View */,
+				31F49970249DF79E002D076A /* Model */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		31F49975249DF896002D076A /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				31F49978249DF921002D076A /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		31F49976249DF8B4002D076A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				31BDEA24249D17900008BC73 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		31F49977249DF8E6002D076A /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				31BDEA32249D17930008BC73 /* Info.plist */,
+			);
+			path = plist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F49979249DF921002D076A /* NetworkManager.swift in Sources */,
+				31F4997D249E6F75002D076A /* ImageDetailViewController.swift in Sources */,
 				31BDEA48249D2B140008BC73 /* FlickerPhotoCell.swift in Sources */,
 				31BDEA29249D17900008BC73 /* FlickerSearchViewController.swift in Sources */,
 				31BDEA25249D17900008BC73 /* AppDelegate.swift in Sources */,
+				31F4997B249E492C002D076A /* SearchApiResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FlickerPhotoSearch/Info.plist;
+				INFOPLIST_FILE = FlickerPhotoSearch/plist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,7 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FlickerPhotoSearch/Info.plist;
+				INFOPLIST_FILE = FlickerPhotoSearch/plist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
