@@ -13,6 +13,7 @@
 		31BDEA31249D17930008BC73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BDEA2F249D17930008BC73 /* LaunchScreen.storyboard */; };
 		31BDEA3C249D17930008BC73 /* FlickerPhotoSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDEA3B249D17930008BC73 /* FlickerPhotoSearchTests.swift */; };
 		31BDEA48249D2B140008BC73 /* FlickerPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */; };
+		31F4996F249DCFF5002D076A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31F4996E249DCFF5002D076A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		31BDEA3B249D17930008BC73 /* FlickerPhotoSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerPhotoSearchTests.swift; sourceTree = "<group>"; };
 		31BDEA3D249D17930008BC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerPhotoCell.swift; sourceTree = "<group>"; };
+		31F4996E249DCFF5002D076A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				31BDEA46249D1D6A0008BC73 /* BassClass */,
 				31BDEA24249D17900008BC73 /* AppDelegate.swift */,
+				31F4996E249DCFF5002D076A /* Main.storyboard */,
 				31BDEA28249D17900008BC73 /* FlickerSearchViewController.swift */,
 				31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */,
 				31BDEA2D249D17930008BC73 /* Assets.xcassets */,
@@ -185,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F4996F249DCFF5002D076A /* Main.storyboard in Resources */,
 				31BDEA31249D17930008BC73 /* LaunchScreen.storyboard in Resources */,
 				31BDEA2E249D17930008BC73 /* Assets.xcassets in Resources */,
 			);

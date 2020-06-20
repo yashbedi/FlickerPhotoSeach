@@ -10,19 +10,12 @@ import UIKit
 
 final class FlickerSearchViewController: UIViewController {
 
-    private var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 50, height: 50)
-        layout.minimumInteritemSpacing = 4
-        layout.scrollDirection = .vertical
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
-        return collectionView
-    }()
+    @IBOutlet fileprivate weak var searchContainer: UIView!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
     
     private var searchController : UISearchController = {
         let search = UISearchController(searchResultsController: nil)
+        search.hidesNavigationBarDuringPresentation = true
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Type something here to search"
         return search
@@ -33,50 +26,42 @@ final class FlickerSearchViewController: UIViewController {
         commonInIt()
     }
 }
-
 private extension FlickerSearchViewController {
     func commonInIt(){
-        setUI()
-        setHierarchy()
-        setConstraints()
+        searchSetup()
+        collectionViewSetup()
     }
-    func setUI(){
-        setUpNavBar()
-        setUpSearchBar()
-    }
-    func setHierarchy(){
-        view.addSubview(collectionView)
-    }
-    func setConstraints(){
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-    }
-}
-private extension FlickerSearchViewController {
-    func setUpNavBar(){
-        view.backgroundColor = .yellow
-        title = "Image Search"
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    func setUpSearchBar(){
+    func searchSetup(){
         searchController.searchResultsUpdater = self
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+        searchContainer.addSubview(searchController.searchBar)
+        searchController.searchBar.sizeToFit()
+    }
+    func collectionViewSetup(){
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
     }
 }
 
-extension FlickerSearchViewController : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension FlickerSearchViewController : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 50
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlickerPhotoCell", for: indexPath) as! FlickerPhotoCell
+        return cell
     }
-    
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let totalHeight: CGFloat = (view.frame.width / 3)
+        let totalWidth: CGFloat = (view.frame.width / 3)
+        return CGSize(width: ceil(totalWidth - 8), height: ceil(totalHeight - 8))
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
 }
 extension FlickerSearchViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {

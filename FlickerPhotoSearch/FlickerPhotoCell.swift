@@ -9,5 +9,6 @@
 import UIKit
 
 final class FlickerPhotoCell: UICollectionViewCell {
-    
+    @IBOutlet weak var imageView: UIImageView!
 }
+
