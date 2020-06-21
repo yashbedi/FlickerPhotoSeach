@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ImageDetailViewController: UIViewController {
+final class ImageDetailViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var imageView: UIImageView!
     
@@ -22,12 +22,15 @@ final class ImageDetailViewController: UIViewController {
         imageView.image = thumbImage
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         guard let uRL = url else { return }
-        NetworkManager.shared.getImage(from: uRL) { (imageData) in
-            DispatchQueue.main.async {
-                self.imageView.image = UIImage(data: imageData)
+        DownloadImageService.shared.getImage(from: uRL, indexPath: nil) { (data, index, url) in
+            if data != nil {
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(data: data!)
+                }
             }
         }
     }

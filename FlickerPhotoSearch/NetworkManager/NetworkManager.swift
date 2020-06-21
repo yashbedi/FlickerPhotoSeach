@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-let Key = "6ff7d82a370f1a9ac37c207975dcb341"
-let Secret = "8c90a5047f44389a"
-
 final class NetworkManager {
     
     private init() { }
@@ -19,11 +16,16 @@ final class NetworkManager {
     static let shared = NetworkManager()
     
     private var task : URLSessionDataTask?
-        
-    private let imageDataCache = NSCache<NSString, NSData>()
     
-    func getPhotos(for searchStr: String,with pageNum: Int, completion: @escaping ([Photo]?,String?)->Void){
+    func getPhotosData(for searchStr: String,with pageNum: Int, completion: @escaping ([Photo]?,String?)->Void){
+        
+        if Reachability.currentReachabilityStatus == .notReachable {
+            completion(nil,Constants.kNoInternet)
+            return
+        }
+        
         guard let finalSearchStr = searchStr.addingPercentEncoding(withAllowedCharacters: .alphanumerics) else { return }
+
         guard let uRL = URL(string: generateURL(from: finalSearchStr, with: pageNum)) else { return }
         
         let request = URLRequest(url: uRL)
@@ -45,24 +47,14 @@ final class NetworkManager {
         task?.resume()
     }
     
-    func getImage(from url: URL, completion: @escaping (Data)->Void) {
-        if let cachedImageData = imageDataCache.object(forKey: url.absoluteString as NSString) {
-            print("--GOT IT FROM CACHE..")
-            completion(cachedImageData as Data)
-        }else{
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if let imageData = data {
-                    self.imageDataCache.setObject(imageData as NSData, forKey: url.absoluteString as NSString)
-                    completion(imageData)
-                }
-            }.resume()
-        }
-    }
-    
     func cancelRequests(){
         task?.cancel()
     }
-    private func generateURL(from text: String, with pageNum: Int) -> String {
-        return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Key)&text=\(text)&per_page=20&format=json&nojsoncallback=1&page=\(pageNum)"
+}
+
+private extension NetworkManager {
+    
+    func generateURL(from text: String, with pageNum: Int) -> String {
+        return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Constants.kFlickrKey)&text=\(text)&per_page=50&format=json&nojsoncallback=1&page=\(pageNum)"
     }
 }

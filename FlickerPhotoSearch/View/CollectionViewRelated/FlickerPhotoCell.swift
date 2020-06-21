@@ -10,21 +10,10 @@ import UIKit
 
 final class FlickerPhotoCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        loaderStartAnim()
         imageView.image = #imageLiteral(resourceName: "placeHolder")
-        //imageView.backgroundColor = .lightGray
-    }
-    func loaderStartAnim(){
-        loader.isHidden = false
-        loader.startAnimating()
-    }
-    func loaderStopAnim(){
-        loader.stopAnimating()
-        loader.isHidden = true
     }
 }
 

@@ -17,6 +17,15 @@
 		31F49979249DF921002D076A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49978249DF921002D076A /* NetworkManager.swift */; };
 		31F4997B249E492C002D076A /* SearchApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4997A249E492C002D076A /* SearchApiResult.swift */; };
 		31F4997D249E6F75002D076A /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4997C249E6F75002D076A /* ImageDetailViewController.swift */; };
+		31F49980249F214F002D076A /* CoreImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4997F249F214E002D076A /* CoreImageOperation.swift */; };
+		31F49984249F999F002D076A /* NaiveDarkAndLightMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49983249F999F002D076A /* NaiveDarkAndLightMode.swift */; };
+		31F49986249FA0A2002D076A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49985249FA0A2002D076A /* BaseViewController.swift */; };
+		31F49988249FABA2002D076A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49987249FABA2002D076A /* Constants.swift */; };
+		31F4998A249FB03F002D076A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49989249FB03F002D076A /* UICollectionView+Extension.swift */; };
+		31F4998C249FB335002D076A /* FooterLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4998B249FB334002D076A /* FooterLoaderView.swift */; };
+		31F4998E249FC916002D076A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4998D249FC916002D076A /* Reachability.swift */; };
+		31F49996249FD954002D076A /* DownloadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F49995249FD954002D076A /* DownloadImageService.swift */; };
+		31F499A0249FDF67002D076A /* FlickerSearchViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F4999F249FDF67002D076A /* FlickerSearchViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,15 @@
 		31F49978249DF921002D076A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		31F4997A249E492C002D076A /* SearchApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApiResult.swift; sourceTree = "<group>"; };
 		31F4997C249E6F75002D076A /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		31F4997F249F214E002D076A /* CoreImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageOperation.swift; sourceTree = "<group>"; };
+		31F49983249F999F002D076A /* NaiveDarkAndLightMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaiveDarkAndLightMode.swift; sourceTree = "<group>"; };
+		31F49985249FA0A2002D076A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		31F49987249FABA2002D076A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		31F49989249FB03F002D076A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		31F4998B249FB334002D076A /* FooterLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoaderView.swift; sourceTree = "<group>"; };
+		31F4998D249FC916002D076A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		31F49995249FD954002D076A /* DownloadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageService.swift; sourceTree = "<group>"; };
+		31F4999F249FDF67002D076A /* FlickerSearchViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlickerSearchViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +103,13 @@
 		31BDEA23249D17900008BC73 /* FlickerPhotoSearch */ = {
 			isa = PBXGroup;
 			children = (
+				31F49982249F998E002D076A /* Common */,
+				31F4997E249F1F9A002D076A /* OptimisedImageDownload */,
 				31F49977249DF8E6002D076A /* plist */,
 				31F49976249DF8B4002D076A /* AppDelegate */,
 				31F49975249DF896002D076A /* NetworkManager */,
-				31F49974249DF873002D076A /* MVP */,
+				31F49971249DF7A5002D076A /* View */,
+				31F49970249DF79E002D076A /* Model */,
 				31F49973249DF865002D076A /* Service */,
 				31BDEA46249D1D6A0008BC73 /* BassClass */,
 				31F4996E249DCFF5002D076A /* Main.storyboard */,
@@ -110,6 +131,7 @@
 		31BDEA46249D1D6A0008BC73 /* BassClass */ = {
 			isa = PBXGroup;
 			children = (
+				31F49985249FA0A2002D076A /* BaseViewController.swift */,
 			);
 			path = BassClass;
 			sourceTree = "<group>";
@@ -125,35 +147,19 @@
 		31F49971249DF7A5002D076A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */,
-				31BDEA28249D17900008BC73 /* FlickerSearchViewController.swift */,
-				31F4997C249E6F75002D076A /* ImageDetailViewController.swift */,
+				31F49991249FCDA4002D076A /* DetailsView */,
+				31F49990249FCD95002D076A /* SearchView */,
+				31F4998F249FCD83002D076A /* CollectionViewRelated */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		31F49972249DF7AB002D076A /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		31F49973249DF865002D076A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				31F49995249FD954002D076A /* DownloadImageService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		31F49974249DF873002D076A /* MVP */ = {
-			isa = PBXGroup;
-			children = (
-				31F49972249DF7AB002D076A /* Presenter */,
-				31F49971249DF7A5002D076A /* View */,
-				31F49970249DF79E002D076A /* Model */,
-			);
-			path = MVP;
 			sourceTree = "<group>";
 		};
 		31F49975249DF896002D076A /* NetworkManager */ = {
@@ -178,6 +184,51 @@
 				31BDEA32249D17930008BC73 /* Info.plist */,
 			);
 			path = plist;
+			sourceTree = "<group>";
+		};
+		31F4997E249F1F9A002D076A /* OptimisedImageDownload */ = {
+			isa = PBXGroup;
+			children = (
+				31F4997F249F214E002D076A /* CoreImageOperation.swift */,
+			);
+			path = OptimisedImageDownload;
+			sourceTree = "<group>";
+		};
+		31F49982249F998E002D076A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				31F49983249F999F002D076A /* NaiveDarkAndLightMode.swift */,
+				31F49987249FABA2002D076A /* Constants.swift */,
+				31F49989249FB03F002D076A /* UICollectionView+Extension.swift */,
+				31F4998D249FC916002D076A /* Reachability.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		31F4998F249FCD83002D076A /* CollectionViewRelated */ = {
+			isa = PBXGroup;
+			children = (
+				31BDEA47249D2B140008BC73 /* FlickerPhotoCell.swift */,
+				31F4998B249FB334002D076A /* FooterLoaderView.swift */,
+			);
+			path = CollectionViewRelated;
+			sourceTree = "<group>";
+		};
+		31F49990249FCD95002D076A /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				31BDEA28249D17900008BC73 /* FlickerSearchViewController.swift */,
+				31F4999F249FDF67002D076A /* FlickerSearchViewController+Ext.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		31F49991249FCDA4002D076A /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				31F4997C249E6F75002D076A /* ImageDetailViewController.swift */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +333,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F49979249DF921002D076A /* NetworkManager.swift in Sources */,
+				31F4998A249FB03F002D076A /* UICollectionView+Extension.swift in Sources */,
+				31F49996249FD954002D076A /* DownloadImageService.swift in Sources */,
 				31F4997D249E6F75002D076A /* ImageDetailViewController.swift in Sources */,
 				31BDEA48249D2B140008BC73 /* FlickerPhotoCell.swift in Sources */,
+				31F499A0249FDF67002D076A /* FlickerSearchViewController+Ext.swift in Sources */,
+				31F49984249F999F002D076A /* NaiveDarkAndLightMode.swift in Sources */,
 				31BDEA29249D17900008BC73 /* FlickerSearchViewController.swift in Sources */,
+				31F4998C249FB335002D076A /* FooterLoaderView.swift in Sources */,
+				31F49988249FABA2002D076A /* Constants.swift in Sources */,
+				31F49986249FA0A2002D076A /* BaseViewController.swift in Sources */,
 				31BDEA25249D17900008BC73 /* AppDelegate.swift in Sources */,
 				31F4997B249E492C002D076A /* SearchApiResult.swift in Sources */,
+				31F49980249F214F002D076A /* CoreImageOperation.swift in Sources */,
+				31F4998E249FC916002D076A /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +500,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlickerPhotoSearch/plist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlickerPhotoSearch/plist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
